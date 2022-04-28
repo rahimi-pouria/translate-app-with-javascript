@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>trnslate</title>
+</head>
+<body>
+    <div class="container">
+        <div class="translate">
+            <div class="wordTranlate">
+                <div class="addword">
+                   <!--search word-->
+                   <div class="WordSearchTranslate">
+                        <h3 class="heading-search-word">translate word</h3>
+                        <label for="name" class="labelInput">Add Word</label>
+                        <input type="text" id="addword"> 
+                        <button class="goToTranslate" id="goToTranslate">Go to tranlate</button>
+                   </div>
+                    <!--show meaning-->
+                    <div id="tranword">
+                        <h3 class="show-meaning">show meaning</h3>
+                    </div>
+                   <!--show history-->
+                   <div class="historywordlocalstorage">
+                        <div class="resualt1">
+                            <h4>Show searched words </h4>    
+                            <div class="word-searching" id="wordSearching"></div>
+                        </div>
+                        <div class="resualt2">
+                            <h4>show data in local storage</h4>
+                            <div class="show-history" id="show-history"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <script src="app.js"></script>
+</body>
+</html>

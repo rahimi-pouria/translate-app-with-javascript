@@ -1,0 +1,97 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #343a40!important;
+}   
+.container {
+    width: 100%;
+}
+.translate {
+    background: #fff;
+    width: 60%;
+    margin: 0 auto;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+.addword input {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.addword label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+}
+button#goToTranslate {
+    padding: 6px;
+    background: #eb05ff;
+    color: #000;
+    border: 1px solid #eb05ff;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+h3.heading-search-word, h3.show-meaning  {
+    text-align: center;
+    padding: 0 0 32px 0;
+    font-size: 27px;
+    font-family: sans-serif;
+    font-weight: 200;
+}
+h4 {
+    text-align: center;
+    padding: 0 0 32px 0;
+    font-size: 18px;
+    font-family: sans-serif;
+    font-weight: 200;
+    margin-top: 16px;
+}   
+.WordSearchTranslate {
+    padding: 19px;
+}
+div#tranword {
+    height: 30vh;
+    background: #f5f5f5;
+    padding: 10px;
+    text-align: center;
+    color: #000;
+
+}
+button#goToTranslate {
+    padding: 6px;
+    background: #343a40;
+    color: #fff;
+    border: 1px solid #343a40;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+.show-resault {
+
+    width: 100% !important;
+}   
+.historywordlocalstorage{
+    width: 100% !important;
+    display: flex;
+    flex-flow: row;
+}
+.resualt1,.resualt2 {
+    width: 50%;
+    padding: 20px;
+}
+
