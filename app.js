@@ -1,52 +1,46 @@
-//event btn 
-let translate = document.querySelector('#goToTranslate').addEventListener('click',  wordTranslate)
 let showTranslate = document.querySelector('#tranword');
 let wordSearching = document.querySelector('#wordSearching');
+//clear text at input function 
+let inputsAdword = document.querySelector('#inputs');
 let historywordlocalstorage = document.querySelector('.historywordlocalstorage');
+
+let word;
+//loader event
+let loader = document.querySelector('#loader');
 //word Searching
 let WordArr = [];
 
 //show history
 let ShowHistory = document.querySelector('#show-history');
-// function envent click
-function wordTranslate(){
 
-    setTimeout(function() {
-        showTranslate.style.display = 'block';   
-        historywordlocalstorag.style.display = 'block';  
-    }, 2000)
+//event btn 
+let translate = document.querySelector('#goToTranslate').addEventListener('click',  () => {
 
     //get value
-    let word = document.querySelector('#addword').value;
+    word = document.querySelector('#addword').value;
+        
 
-
-    //create object 
-    const translate = new XMLHttpRequest();
-    //send request
-    translate.open('GET', `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`, true);
-
-    translate.onload = function() {
-        if(this.status === 200) {
-            const tranWord = JSON.parse(this.responseText);
+        // fetch Api 
+    fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
+        .then((res) => {
+            return res.json();
+        })
+        // show data
+        .then((data) => {
+            const tranWord = data;
             let show = '';
-            for (let x in tranWord) {
-                for(let i in tranWord[x].meanings){
-                    for(let j in tranWord[x].meanings[i].definitions){
+            tranWord.map((item, index) => {
                 show += `
-                    <p>${tranWord[x].meanings[i].definitions[j].definition}</p>
+                    <p>${item.meanings[index].definitions[index].definition}</p>
                 `
-                    }
-                }
-              }
-
+            })
+            // show data at dom
             showTranslate.innerHTML = show;
-        }else {
-            if(this.status === 403) {
-                alert('Page not available');
-            }
-        }
-       
-    }
+        })
+        //show error at console 
+        .catch((err) => {
+            console.log(err)
+        })   
         //push word Searching to array
         WordArr.push(word);
         // loop search word
@@ -55,7 +49,14 @@ function wordTranslate(){
                 <p>${word}</p>
             `
         })    
-
+            //added style with javascript
+            
+            historywordlocalstorage.style.display = 'block';  
+            historywordlocalstorage.style.display = 'flex';
+            // showTranslate.style.height = 'auto';
+            showTranslate.style.padding = '15px';
+            inputsAdword.style.height = 'auto';
+        // show history data at dom
         wordSearching.innerHTML = WordArr;
         // add data on localStorage
         localStorage.setItem('word', word);
@@ -63,5 +64,5 @@ function wordTranslate(){
         var showdata = localStorage.getItem('word');
         //show history
         ShowHistory.innerHTML = showdata;
-    translate.send();
-}
+
+})
